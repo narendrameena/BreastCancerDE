@@ -1,0 +1,16 @@
+{
+    "contents" : "## installing array express packages \noptions(download.file.method=\"wget\")\n\nlibrary(BaseSpaceR)\nACCESS_TOKEN<- '41ff17ce7a554c64827dfa022ecbdc0d'\nPROJECT_ID<- '21885868' ## Get proj ID from url of the project\n\naAuth<- AppAuth(access_token = ACCESS_TOKEN)\n\nu <- Users(aAuth)\nu\nr <- listRuns(aAuth)\nr\nPROJECT_ID='21885868'\nsetwd(\"/Volumes/My Passport/Breast_Cancer_Project/data\")\ngetwd()\nselProj <- Projects(aAuth, id = PROJECT_ID, simplify = TRUE)\nselProj\nf\nResult_ID='21885868'\nreseq <- listAppResults(aAuth,PROJECT_ID)\nreseq\nlength(reseq)\nf<-listFiles(AppResults(reseq))\nlibrary(cummeRbund)\nlength(reseq)\n#sampl <- listSamples(selProj, limit= 1000)\n#length(sampl)\ninSample <- Samples(aAuth, id = Id(sampl), simplify = TRUE)\nreseq <- listAppResults(aAuth,PROJECT_ID)\nreseq2 <-AppResults(aAuth,id=Id(reseq),simplify = TRUE)\ni=0\nfor(s in reseq2){\n  s\n  f <- listFiles(s)\n  f\n  print(Name(f))\n  getFiles(aAuth, id= Id(f), destDir = paste(Name(s), as.character(i)), verbose = TRUE)\n  i =i +1\n}\n\n",
+    "created" : 1429684059093.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1152285139",
+    "id" : "8C7EC3AF",
+    "lastKnownWriteTime" : 1429624056,
+    "path" : "~/Documents/Breast_Cancer/basespace.R",
+    "project_path" : "basespace.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
